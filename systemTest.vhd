@@ -43,7 +43,6 @@ ARCHITECTURE behavior OF systemTest IS
     PORT(
          rst : IN  std_logic;
          rstRam : IN  std_logic;
-         load : IN  std_logic;
          sens : IN  std_logic;
          Din : IN  std_logic_vector(15 downto 0);
          clk : IN  std_logic
@@ -54,7 +53,6 @@ ARCHITECTURE behavior OF systemTest IS
    --Inputs
    signal rstRam : std_logic := '0';	
 	signal rst : std_logic := '0';
-   signal load : std_logic := '0';
    signal sens : std_logic := '1';
    signal Din : std_logic_vector(15 downto 0) := (others => '0');
    signal clk : std_logic := '1';
@@ -68,7 +66,6 @@ BEGIN
    uut: system PORT MAP (
           rst => rst,
           rstRam => rstRam,
-          load => load,
           sens => sens,
           Din => Din,
           clk => clk
@@ -99,3 +96,4 @@ BEGIN
    end process;
 
 END;
+

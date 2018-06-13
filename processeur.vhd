@@ -31,7 +31,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity processeur is
 	Port (rst : IN  std_logic;
-         load : IN  std_logic;
          sens : IN  std_logic;
          Din : IN  std_logic_vector(15 downto 0);
 			clk : IN std_logic;

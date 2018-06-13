@@ -32,7 +32,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity system is
 	Port (rst : IN  std_logic;
 			rstRam : IN std_logic;
-         load : IN  std_logic;
          sens : IN  std_logic;
          Din : IN  std_logic_vector(15 downto 0);
 			clk : IN std_logic);
@@ -42,7 +41,6 @@ architecture Structural of system is
 	COMPONENT processeur
     PORT(
          rst : IN  std_logic;
-         load : IN  std_logic;
          sens : IN  std_logic;
          Din : IN  std_logic_vector(15 downto 0);
          clk : IN  std_logic;
@@ -81,9 +79,10 @@ architecture Structural of system is
 		signal ins_di : std_logic_vector(31 downto 0);
 		signal we : std_logic;
 begin
-	proc : processeur PORT MAP(rst,load,sens,Din,clk,ins_di,do,a,we,di,ins_a);
+	proc : processeur PORT MAP(rst,sens,Din,clk,ins_di,do,a,we,di,ins_a);
 	ram : bram16 PORT MAP(clk,rstRam,di,we,a,do);
 	memoireInstruct : memInstruct PORT MAP(ins_a,ins_di);
 
 end Structural;
+
 
